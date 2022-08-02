@@ -12,11 +12,13 @@ layout = [[Sg.Menu(menu_def, tearoff=True)],
           ]
 
 rt = 'notepad'
-tr = Sg.popup_get_folder("Notepad STARTUP", "Please select folder!")
-if tr == '' or 'Quit':
+tr = Sg.popup_get_folder("Please select folder!", "Notepad STARTUP", icon='icon.ico')
+if tr == '':
     print("THIS PROGRAM CANT WORKING IF YOU DONT SELECT WHERE YOU WANT TO SAVE (ERROR)")
-elif tr != '':
+elif tr and not '':
     print("you select " + tr)
+else:
+    print("THIS PROGRAM CANT WORKING IF YOU DONT SELECT WHERE YOU WANT TO SAVE (ERROR)")
 
 window = Sg.Window('Notepad python', layout, icon='icon.ico')
 
@@ -41,5 +43,5 @@ while True:
             f.write(values['testek'])
         f.close()
     elif event == 'About...':
-        import About
+        import test2
 window.close()
