@@ -5,6 +5,7 @@ import time
 import io
 
 menu_def = [['&File', ['Save As', 'Open', 'Save', 'E&xit']],
+            ['&Crazy', ['Delete all']],
             ['&Help', '&About...'], ]
 
 layout = [[Sg.Menu(menu_def, tearoff=True)],
@@ -33,15 +34,23 @@ while True:
         window['testek'].update(ter.read())
     elif event == 'Save As':
         rt = Sg.popup_get_text('Name of file without .txt', "Notepad", icon='icon.ico')
-        tr = Sg.popup_get_folder('Where you want to save?', "Notepad", icon='icon.ico')
+        if tr != '' in tr:
+            print(tr)
+        elif tr == '' in tr:
+            tr = Sg.popup_get_folder('Where you want to save?', "Notepad", icon='icon.ico')
         with io.open(tr + '/' + rt + ".txt", "a", encoding="utf8") as f:
             f.write(values['testek'])
             f.write('\n')
         f.close()
+    elif event == 'Delete all':
+        window['testek'].update("")
+        print(values['testek'])
+        window.refresh()
     elif keyboard.is_pressed("ctrl+s"):
-        with io.open(tr + '/' + rt + ".txt", "w", encoding="utf8") as f:
+        with io.open(tr + '/' + rt + ".txt", "a", encoding="utf8") as f:
             f.write(values['testek'])
+            f.write('\n')
         f.close()
-    elif event == 'About...':
-        import test2
+    elif event == 'About':
+        import About
 window.close()

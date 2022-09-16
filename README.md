@@ -1,6 +1,9 @@
 # Simple-Notepad-Python
 Here is simple Simple-Notepad script. i want to fix it in free time. its working, test and enjoy!
 
+In new update i fixed this if you on launch and select folder you don't need to do it again when you 
+save file
+
 ![image](https://user-images.githubusercontent.com/88287407/182469971-0a249b76-3ac2-41ba-8a3d-2daf02722cfa.png)
 
 If you Select folder!
