@@ -11,7 +11,7 @@ menu_def = [['&File', ['Save As', 'Open', 'Save', 'E&xit']],
 layout = [[Sg.Menu(menu_def, tearoff=True)],
           [Sg.Multiline("", size=(85, 35), enable_events=True, visible=True, key='testek')],
           ]
-
+Sg.theme('Reddit')
 rt = 'notepad'
 tr = Sg.popup_get_folder("Please select folder!", "Notepad STARTUP", icon='icon.ico')
 if tr == '':
@@ -21,7 +21,7 @@ elif tr and not '':
 else:
     print("THIS PROGRAM CANT WORKING IF YOU DONT SELECT WHERE YOU WANT TO SAVE (ERROR)")
 
-window = Sg.Window('Notepad python', layout, icon='icon.ico')
+window = Sg.Window('pypad - unnamed', layout, icon='icon.ico')
 
 while True:
     event, values = window.read()
@@ -42,6 +42,7 @@ while True:
             f.write(values['testek'])
             f.write('\n')
         f.close()
+        window.TKroot.title("pypad - " + rt + ".txt")
     elif event == 'Delete all':
         window['testek'].update("")
         print(values['testek'])
