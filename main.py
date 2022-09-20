@@ -6,7 +6,7 @@ import io
 
 menu_def = [['&File', ['Save As', 'Open', 'Save', 'E&xit']],
             ['&Crazy', ['Delete all']],
-            ['&Help', '&About...'], ]
+            ['&Help', 'About'], ]
 
 layout = [[Sg.Menu(menu_def, tearoff=True)],
           [Sg.Multiline("", size=(85, 35), enable_events=True, visible=True, key='testek')],
@@ -34,9 +34,9 @@ while True:
         window['testek'].update(ter.read())
     elif event == 'Save As':
         rt = Sg.popup_get_text('Name of file without .txt', "Notepad", icon='icon.ico')
-        if tr != '' in tr:
-            print(tr)
-        elif tr == '' in tr:
+        if tr != '' or 'None' in tr:
+            print('d')
+        if tr == '' in tr:
             tr = Sg.popup_get_folder('Where you want to save?', "Notepad", icon='icon.ico')
         with io.open(tr + '/' + rt + ".txt", "a", encoding="utf8") as f:
             f.write(values['testek'])
